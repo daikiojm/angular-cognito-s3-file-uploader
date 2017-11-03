@@ -1,0 +1,25 @@
+<div class="usermenu">
+  <h2>ユーザーメニュー</h2>
+  <button [routerLink]="['/upload']">アップロード</button>
+  <button (click)="onClickLogout()">ログアウト</button>
+</div>
+
+<div class="filelist">
+  <h2>ファイル一覧</h2>
+  <table class="filelist-table">
+    <thead>
+      <tr>
+        <th>ファイル名</th>
+        <th>更新日</th>
+        <th>サイズ</th>
+      </tr> 
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of remoteFiles">
+        <td><a (click)="onClickFile(item)">{{item.Key}}</a></td>
+        <td>{{item.LastModified}}</td>
+        <td>{{item.Size}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,12 @@
+<div class="usermenu">
+  <h2>ユーザーメニュー</h2>
+  <button [routerLink]="['/files']">ファイル一覧</button>
+  <button (click)="onClickLogout()">ログアウト</button>
+</div>
+
+<div class="fileupload">
+  <h2>アップロード</h2>
+  <input type="file" accept="*/*" (change)="onInputChange($event)">
+  <button (click)="onClickUpload()">アップロード</button>
+  <p *ngIf="uploadResult !== ''">アップロード結果: {{uploadResult}}</p>
+</div>

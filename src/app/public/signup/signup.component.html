@@ -1,0 +1,23 @@
+<p>signup</p>
+
+<button (click)="successfullySignup = true" *ngIf="!successfullySignup">メールアドレスと確認コードで認証</button>
+
+<div class="signup" *ngIf="!successfullySignup">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignup(signupForm.value)">
+    <label>Email: </label>
+    <input type="email" formControlName="email">
+    <label>Password: </label>
+    <input type="password" formControlName="password">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div class="confirmation" *ngIf="successfullySignup">
+  <form [formGroup]="confirmationForm" (ngSubmit)="onSubmitConfirmation(confirmationForm.value)">
+      <label>Email: </label>
+      <input type="email" formControlName="email">
+    <label>Confirmation Code: </label>
+    <input type="text" formControlName="confirmationCode">
+    <button type="submit">Confirm</button>
+  </form>
+</div>
