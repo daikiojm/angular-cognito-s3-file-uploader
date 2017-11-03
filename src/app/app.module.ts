@@ -10,6 +10,7 @@ import { UploadComponent } from './secure/upload/upload.component';
 import { CognitoService } from './service/cognito.service';
 import { S3Service } from './service/s3.service';
 import { FilesComponent } from './pages/files/files.component';
+import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FilesComponent } from './pages/files/files.component';
   ],
   providers: [
     CognitoService,
-    S3Service
+    S3Service,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

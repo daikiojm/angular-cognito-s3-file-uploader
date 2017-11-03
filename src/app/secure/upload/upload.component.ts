@@ -18,11 +18,6 @@ export class UploadComponent implements OnInit {
     private s3: S3Service
   ) {
     this.uploadResult = '';
-    this.cognito.isAuthenticated()
-    .then(res => console.log(res))
-    .catch((err) => {
-      return console.log(err) || this.router.navigate(['/login']);
-    });
   }
 
   ngOnInit() {

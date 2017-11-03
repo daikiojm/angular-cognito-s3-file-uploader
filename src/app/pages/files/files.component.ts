@@ -15,13 +15,7 @@ export class FilesComponent implements OnInit {
     private router: Router,
     private cognito: CognitoService,
     private s3: S3Service
-  ) {
-    this.cognito.isAuthenticated()
-    .then(res => console.log(res))
-    .catch((err) => {
-      return console.log(err) || this.router.navigate(['/login']);
-    });
-  }
+  ) { }
 
   ngOnInit() {
     this.s3.getFileList().then((data) => {

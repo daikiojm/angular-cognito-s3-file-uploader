@@ -4,31 +4,30 @@ import { SignupComponent } from './public/signup/signup.component';
 import { LoginComponent } from './public/login/login.component';
 import { UploadComponent } from './secure/upload/upload.component';
 import { FilesComponent } from './pages/files/files.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
-    pathMatch: 'full'
   },
   {
     path: 'login',
     component: LoginComponent,
-    pathMatch: 'full'
   },
   {
     path: 'upload',
     component: UploadComponent,
-    pathMatch: 'full'
+    canActivate: [AuthGuard]
   },
   {
     path: 'files',
     component: FilesComponent,
-    pathMatch: 'full'
+    canActivate: [AuthGuard]
   },
   {
     path: '',
-    component: UploadComponent,
+    redirectTo: '/upload',
     pathMatch: 'full'
   }
 ];
